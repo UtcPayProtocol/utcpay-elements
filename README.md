@@ -1,5 +1,11 @@
 # UtcPay Elements
 
+English|[简体中文](./README.zh-CN.md)
+
+![GitHub release version](https://img.shields.io/github/release/UtcPayProtocol/utcpay-elements.svg)
+![GitHub release downloads](https://img.shields.io/github/downloads/UtcPayProtocol/utcpay-elements/total)
+![GitHub License](https://img.shields.io/github/license/UtcPayProtocol/utcpay-elements.svg)
+
 A javascript SDK for embedding UtcPay payment page in your website or app.
 
 ## Quick Start
@@ -216,3 +222,7 @@ All customizable theme properties are as follows (the type of property value mus
 ### Deep Customization
 
 You can deeply customize the theme of the payment page by modifying the `utcpay-elements.css` file or overriding the relevant styles.
+
+## License
+
+MIT

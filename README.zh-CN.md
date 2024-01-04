@@ -1,5 +1,11 @@
 # UtcPay Elements
 
+[English](./README.md)|简体中文
+
+![GitHub release version](https://img.shields.io/github/release/UtcPayProtocol/utcpay-elements.svg)
+![GitHub release downloads](https://img.shields.io/github/downloads/UtcPayProtocol/utcpay-elements/total)
+![GitHub License](https://img.shields.io/github/license/UtcPayProtocol/utcpay-elements.svg)
+
 将UtcPay支付页面嵌入到您的网站或应用程序中的JavaScript SDK。
 
 ## 快速开始
@@ -216,3 +222,7 @@ const Payment = new UtcPayElements({
 ### 深度定制
 
 您可以通过修改`utcpay-elements.css`文件或者覆盖相关样式来深度定制支付页面的主题。
+
+## 许可证
+
+MIT
