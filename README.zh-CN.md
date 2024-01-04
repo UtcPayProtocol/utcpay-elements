@@ -2,9 +2,9 @@
 
 [English](./README.md)|简体中文
 
-![GitHub release version](https://img.shields.io/github/release/UtcPayProtocol/utcpay-elements.svg)
+![GitHub release version](https://img.shields.io/github/release/UtcPayProtocol/utcpay-elements)
 ![GitHub release downloads](https://img.shields.io/github/downloads/UtcPayProtocol/utcpay-elements/total)
-![GitHub License](https://img.shields.io/github/license/UtcPayProtocol/utcpay-elements.svg)
+![GitHub License](https://img.shields.io/github/license/UtcPayProtocol/utcpay-elements)
 
 将UtcPay支付页面嵌入到您的网站或应用程序中的JavaScript SDK。
 

@@ -2,9 +2,9 @@
 
 English|[简体中文](./README.zh-CN.md)
 
-![GitHub release version](https://img.shields.io/github/release/UtcPayProtocol/utcpay-elements.svg)
+![GitHub release version](https://img.shields.io/github/release/UtcPayProtocol/utcpay-elements)
 ![GitHub release downloads](https://img.shields.io/github/downloads/UtcPayProtocol/utcpay-elements/total)
-![GitHub License](https://img.shields.io/github/license/UtcPayProtocol/utcpay-elements.svg)
+![GitHub License](https://img.shields.io/github/license/UtcPayProtocol/utcpay-elements)
 
 A javascript SDK for embedding UtcPay payment page in your website or app.
 
