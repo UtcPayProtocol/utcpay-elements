@@ -6,7 +6,9 @@ English|[简体中文](./README.zh-CN.md)
 ![GitHub release downloads](https://img.shields.io/github/downloads/UtcPayProtocol/utcpay-elements/total)
 ![GitHub License](https://img.shields.io/github/license/UtcPayProtocol/utcpay-elements)
 
-A javascript SDK for embedding UtcPay payment page in your website or app.
+A javascript SDK for embedding UtcPay payment page in your website or app. Support mainstream modern browsers.
+
+![UtcPay Elements](images/utcpay_elements.png)
 
 ## Quick Start
 
@@ -19,6 +21,8 @@ UtcPay Elements SDK needs to be used with UtcPay merchant API. You can view how 
 ### ESM
 
 If your project uses ESM modularization, you can directly import the `utcpay-elements.js` file and css file. ESM supports both native HTML and React, Vue and other frameworks.
+
+#### Vanilla HTML
 
 ```html
 <!doctype html>
@@ -59,6 +63,35 @@ If your project uses ESM modularization, you can directly import the `utcpay-ele
 </body>
 
 </html>
+```
+
+#### Use with React
+
+```jsx
+import { useEffect } from "react";
+import UtcPayElements from "./utcpay-elements.js";
+import "./utcpay-elements.css";
+
+export default function Payment() {
+  useEffect(() => {
+    // Parse apiSign in paymentUrl, paymentUrl is returned from UtcPay merchant API when creating a payment order
+    const paymentUrl = '/payment?apiSign=gKLedHpHBzAmVMNq1cVgox7QGrwg%2FYH8Igp0%2Fv1GX3c%3D';
+    const encondedApiSign = paymentUrl.split('=')[1];
+    const apiSign = decodeURIComponent(encondedApiSign);
+    // Initialize configuration
+    const Payment = new UtcPayElements({
+      apiSign: apiSign,
+      // Id of the mount node
+      root: 'payment',
+      // Whether to use the sandbox environment
+      sandbox: true,
+    });
+    // Mount
+    Payment.mount();
+  }, []);
+
+  return <div id="payment" />;
+}
 ```
 
 ### UMD
@@ -180,6 +213,8 @@ const Payment = new UtcPayElements({
   },
 })
 ```
+
+![Custom Theme](./images/custom_theme.png)
 
 All customizable theme properties are as follows (the type of property value must conform to the CSS specification, the type is string or number):
 

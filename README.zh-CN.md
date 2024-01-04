@@ -6,7 +6,9 @@
 ![GitHub release downloads](https://img.shields.io/github/downloads/UtcPayProtocol/utcpay-elements/total)
 ![GitHub License](https://img.shields.io/github/license/UtcPayProtocol/utcpay-elements)
 
-将UtcPay支付页面嵌入到您的网站或应用程序中的JavaScript SDK。
+将UtcPay支付页面嵌入到您的网站或应用程序中的JavaScript SDK。支持主流的现代浏览器。
+
+![UtcPay Elements](images/utcpay_elements.png)
 
 ## 快速开始
 
@@ -19,6 +21,8 @@ UtcPay Elements SDK需要配合UtcPay商户API使用，您可以在[UtcPay Docs]
 ### ESM
 
 如果您的项目使用ESM模块化，可以直接引入`utcpay-elements.js`文件和css文件。ESM同时支持原生HTML和React、Vue等框架。
+
+#### 原生HTML
 
 ```html
 <!doctype html>
@@ -59,6 +63,36 @@ UtcPay Elements SDK需要配合UtcPay商户API使用，您可以在[UtcPay Docs]
 </body>
 
 </html>
+```
+
+#### 在React中使用
+
+```jsx
+import { useEffect } from "react";
+import UtcPayElements from "./utcpay-elements.js";
+import "./utcpay-elements.css";
+
+export default function Payment() {
+  useEffect(() => {
+    // 解析paymentUrl中的apiSign, paymentUrl是从UtcPay商户API中创建收单订单时返回的paymentUrl
+    const paymentUrl =
+      "/payment?apiSign=gKLedHpHBzAmVMNq1cVgox7QGrwg%2FYH8Igp0%2Fv1GX3c%3D";
+    const encondedApiSign = paymentUrl.split("=")[1];
+    const apiSign = decodeURIComponent(encondedApiSign);
+    // 初始化配置
+    const Payment = new UtcPayElements({
+      apiSign: apiSign,
+      // 挂载点的id
+      root: "payment",
+      // 是否使用沙盒环境
+      sandbox: true,
+    });
+    // 挂载
+    Payment.mount();
+  }, []);
+
+  return <div id="payment" />;
+}
 ```
 
 ### UMD
@@ -180,6 +214,8 @@ const Payment = new UtcPayElements({
   },
 })
 ```
+
+![Custom Theme](./images/custom_theme.png)
 
 所有可定制的主题属性如下（属性值的类型需符合CSS规范，类型为字符串或数字）：
 
