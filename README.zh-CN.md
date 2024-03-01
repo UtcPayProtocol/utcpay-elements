@@ -1,26 +1,26 @@
-# UtcPay Elements
+# Pay Elements
 
-[English](./README.md)|简体中文
+[English](./README.md) | 简体中文
 
 ![GitHub release version](https://img.shields.io/github/release/UtcPayProtocol/utcpay-elements)
 ![GitHub release downloads](https://img.shields.io/github/downloads/UtcPayProtocol/utcpay-elements/total)
 ![GitHub License](https://img.shields.io/github/license/UtcPayProtocol/utcpay-elements)
 
-将UtcPay支付页面嵌入到您的网站或应用程序中的JavaScript SDK。支持主流的现代浏览器。
+将PayProtocol支付页面嵌入到您的网站或应用程序中的JavaScript SDK。支持主流的现代浏览器。
 
 ![UtcPay Elements](images/utcpay_elements.png)
 
 ## 快速开始
 
-从GitHub获取最新的[发布版本](https://github.com/UtcPayProtocol/utcpay-elements/releases/latest)，下载并解压缩utcpay-elemets.zip文件，将解压出的内容放到您的项目目录中。
+从GitHub获取最新的[发布版本](https://github.com/UtcPayProtocol/utcpay-elements/releases/latest)，下载并解压缩pay-elemets.zip文件，将解压出的内容放到您的项目目录中。
 
 我们提供ESM和UMD两种模块化的构建版本，您可以根据自己的项目需要选择合适的版本。
 
-UtcPay Elements SDK需要配合UtcPay商户API使用，您可以在[UtcPay Docs](https://doc.utcpay.com/)中查看如何[创建收单订单](https://doc.utcpay.com/merchant/payment#%E5%88%9B%E5%BB%BA%E6%94%B6%E5%8D%95%E8%AE%A2%E5%8D%95)。
+Pay Elements SDK需要配合PayProtocol商户API使用，您可以在[PayProtocol Docs](https://doc.payprotocol.network/zh-CN)中查看如何[创建收单订单](https://doc.payprotocol.network/zh-CN/merchant/payment#%E5%88%9B%E5%BB%BA%E6%94%B6%E5%8D%95%E8%AE%A2%E5%8D%95)。
 
 ### ESM
 
-如果您的项目使用ESM模块化，可以直接引入`utcpay-elements.js`文件和css文件。ESM同时支持原生HTML和React、Vue等框架。
+如果您的项目使用ESM模块化，可以直接引入`pay-elements.js`文件和css文件。ESM同时支持原生HTML和React、Vue等框架。
 
 #### 原生HTML
 
@@ -33,14 +33,14 @@ UtcPay Elements SDK需要配合UtcPay商户API使用，您可以在[UtcPay Docs]
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your website title</title>
   <script type="module">
-    // 引入utcpay-elements.js
-    import UtcPayElements from './utcpay-elements.js';
-    // 解析paymentUrl中的apiSign, paymentUrl是从UtcPay商户API中创建收单订单时返回的paymentUrl
+    // 引入pay-elements.js
+    import PayElements from './pay-elements.js';
+    // 解析paymentUrl中的apiSign, paymentUrl是从PayProtocol商户API中创建收单订单时返回的paymentUrl
     const paymentUrl = '/payment?apiSign=gKLedHpHBzAmVMNq1cVgox7QGrwg%2FYH8Igp0%2Fv1GX3c%3D';
     const encondedApiSign = paymentUrl.split('=')[1];
     const apiSign = decodeURIComponent(encondedApiSign);
     // 初始化配置
-    const Payment = new UtcPayElements({
+    const Payment = new PayElements({
       apiSign: apiSign,
       // 挂载点的id
       root: 'payment',
@@ -53,8 +53,8 @@ UtcPay Elements SDK需要配合UtcPay商户API使用，您可以在[UtcPay Docs]
     // let newApiSign = '...';
     // Payment.updateApiSign(newApiSign);
   </script>
-  <!-- 引入utcpay-elements.css -->
-  <link rel="stylesheet" href="./utcpay-elements.css">
+  <!-- 引入pay-elements.css -->
+  <link rel="stylesheet" href="./pay-elements.css">
 </head>
 
 <body>
@@ -69,12 +69,12 @@ UtcPay Elements SDK需要配合UtcPay商户API使用，您可以在[UtcPay Docs]
 
 ```jsx
 import { useEffect } from "react";
-import UtcPayElements from "./utcpay-elements.js";
-import "./utcpay-elements.css";
+import UtcPayElements from "./pay-elements.js";
+import "./pay-elements.css";
 
 export default function Payment() {
   useEffect(() => {
-    // 解析paymentUrl中的apiSign, paymentUrl是从UtcPay商户API中创建收单订单时返回的paymentUrl
+    // 解析paymentUrl中的apiSign, paymentUrl是从PayProtocol商户API中创建收单订单时返回的paymentUrl
     const paymentUrl =
       "/payment?apiSign=gKLedHpHBzAmVMNq1cVgox7QGrwg%2FYH8Igp0%2Fv1GX3c%3D";
     const encondedApiSign = paymentUrl.split("=")[1];
@@ -97,7 +97,7 @@ export default function Payment() {
 
 ### UMD
 
-如果您的项目使用UMD模块化，可以直接引入`utcpay-elements.umd.cjs`文件和css文件。
+如果您的项目使用UMD模块化，可以直接引入`pay-elements.umd.cjs`文件和css文件。
 
 ```html
 <!doctype html>
@@ -107,10 +107,10 @@ export default function Payment() {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your website title</title>
-  <!-- 引入utcpay-elements.umd.cjs -->
-  <script src="./utcpay-elements.umd.cjs"></script>
-  <!-- 引入utcpay-elements.css -->
-  <link rel="stylesheet" href="./utcpay-elements.css">
+  <!-- 引入pay-elements.umd.cjs -->
+  <script src="./pay-elements.umd.cjs"></script>
+  <!-- 引入pay-elements.css -->
+  <link rel="stylesheet" href="./pay-elements.css">
 </head>
 
 <body>
@@ -118,12 +118,12 @@ export default function Payment() {
   <div id="payment"></div>
   <!-- 脚本需要在挂载点加载之后执行 -->
   <script>
-    // 解析paymentUrl中的apiSign, paymentUrl是从UtcPay商户API中创建收单订单时返回的paymentUrl
+    // 解析paymentUrl中的apiSign, paymentUrl是从PayProtocol商户API中创建收单订单时返回的paymentUrl
     const paymentUrl = '/payment?apiSign=gKLedHpHBzAmVMNq1cVgox7QGrwg%2FYH8Igp0%2Fv1GX3c%3D';
     const encondedApiSign = paymentUrl.split('=')[1];
     const apiSign = decodeURIComponent(encondedApiSign);
     // 初始化配置
-    const UtcPay = new UtcPayElements({
+    const Payment = new PayElements({
       apiSign: apiSign,
       // 挂载点的id
       root: 'payment',
@@ -131,7 +131,7 @@ export default function Payment() {
       sandbox: true,
     });
     // 挂载
-    UtcPay.mount();
+    Payment.mount();
     // 如果要更新apiSign，可以调用updateApiSign方法
     // let newApiSign = '...';
     // Payment.updateApiSign(newApiSign);
@@ -145,33 +145,34 @@ export default function Payment() {
 
 - 如果用户没有安装Web3钱包，将无法完成支付。
 - 如果用户没有在规定时间内完成支付，将被引导返回前一页以便重新下单或者选择支付方式。
-- 如果用户成功支付，将被引导跳转到创建订单时指定的`redirectionUrl`。同时UtcPay将会向您指定的`notifyUrl`发送支付结果。您也可以通过轮询商户API的订单信息接口来获取支付结果。
+- 如果用户成功支付，将被引导跳转到创建订单时指定的`redirectionUrl`。同时PayProtocol将会向您指定的`notifyUrl`发送支付结果。您也可以通过轮询商户API的订单信息接口来获取支付结果。
 
 ## API
 
-### UtcPayElements类
+### PayElements类
 
 #### 构造函数
 
 ```typescript
-new UtcPayElements(options: UtcPayElementsOptions)
+new PayElements(options: PayElementsOptions)
 ```
 
-创建一个 UtcPayElements 实例。
+创建一个 PayElements 实例。
 
 #### 参数
 
-- `options`：`UtcPayElementsOptions`类型，初始化配置。
+- `options`：`PayElementsOptions`类型，初始化配置。
 
-`UtcPayElementsOptions`类型定义如下：
+`PayElementsOptions`类型定义如下：
 
-| 参数名        | 类型          | 必填 | 默认值 | 描述                                                                                                                                                                                                                                                      |
-| ------------- | ------------- | ---- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| apiSign       | string        | 是   | 无     | 从UtcPay商户API中创建收单订单时返回的paymentUrl中解析出的apiSign，每一笔订单的apiSign都是唯一的                                                                                                                                                           |
-| root          | string        | 是   | 无     | HTML挂载点的id                                                                                                                                                                                                                                            |
-| sandbox       | boolean       | 否   | false  | 是否使用沙盒环境，如果为true，将使用沙盒环境，否则使用正式环境                                                                                                                                                                                            |
-| customTheme   | ThemeOverride | 否   | 无     | 自定义主题，如果不传，将使用默认主题，具体可定义的内容参考下文                                                                                                                                                                                            |
-| customCKTheme | any           | 否   | 无     | UtcPay Elements使用了[ConnectKit](https://docs.family.co/connectkit)来连接以太坊钱包，您可以自定义ConnectKit组件的主题，如果不传，将使用默认主题，文档可参考[customTheme](https://docs.family.co/connectkit/api-reference#connectkitprovider-customtheme) |
+| 参数名            | 类型          | 必填   | 默认值 | 描述                                                                                                                                                                                                                                                       |
+| ----------------- | ------------- | ------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| apiSign           | string        | 是     | 无     | 从PayProtocol商户API中创建收单订单时返回的paymentUrl中解析出的apiSign，每一笔订单的apiSign都是唯一的                                                                                                                                                       |
+| root              | string        | 是     | 无     | HTML挂载点的id                                                                                                                                                                                                                                             |
+| sandbox           | boolean       | 否     | false  | 是否使用沙盒环境，如果为true，将使用沙盒环境，否则使用正式环境                                                                                                                                                                                             |
+| defaultLanguage   | string        | 否     | 无     | 默认语言设置。目前内置支持 `en-US`和`zh-CN`，如果不填，会识别用户浏览器语言。如果要添加其他语言，可以参考下文                                                                                                                                              |
+| customTheme       | ThemeOverride | 否     | 无     | 自定义主题，如果不传，将使用默认主题，具体可定义的内容参考下文                                                                                                                                                                                             |
+| ~~customCKTheme~~ | ~~any~~       | ~~否~~ | ~~无~~ | ~~Pay Elements使用了[ConnectKit](https://docs.family.co/connectkit)来连接以太坊钱包，您可以自定义ConnectKit组件的主题，如果不传，将使用默认主题，文档可参考[customTheme](https://docs.family.co/connectkit/api-reference#connectkitprovider-customtheme)~~ |
 
 #### 方法
 
@@ -199,7 +200,7 @@ updateApiSign(newApiSign: string): void
 
 例如：
 ```typescript
-const Payment = new UtcPayElements({
+const Payment = new PayElements({
   apiSign,
   root: 'payment',
   customTheme: {
@@ -257,7 +258,39 @@ const Payment = new UtcPayElements({
 
 ### 深度定制
 
-您可以通过修改`utcpay-elements.css`文件或者覆盖相关样式来深度定制支付页面的主题。
+您可以通过修改`pay-elements.css`文件或者覆盖相关样式来深度定制支付页面的主题。
+
+## 添加语言包
+
+Pay Elements支持多语言，目前内置支持`en-US`和`zh-CN`，如果要添加其他语言，以下步骤来设置：
+
+1. 在`locales/config.json`文件中，添加新的语言配置，格式为`"ISO标准的语言编码": "该语言在本语言中的名称"`例如：
+
+```json
+{
+  "en-US": "English",
+  "zh-CN": "简体中文",
+  "ja-JP": "日本語",
+  "th-TH": "ไทย",
+}
+```
+
+2. 在`locales`目录内新建对应语言的文件夹，比如`ja-JP`，然后创建一个`translation.json`文件，参照已有的中文和英文翻译文件，添加对应的翻译。注意保留key不变，只修改value。
+
+目录结构如下：
+
+```
+|--locales
+  |--config.json
+  |--en-US
+    |--translation.json
+  |--zh-CN
+    |--translation.json
+  |--ja-JP
+    |--translation.json
+  |--th-TH
+    |--translation.json
+```
 
 ## 许可证
 
